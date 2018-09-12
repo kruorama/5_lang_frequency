@@ -13,6 +13,7 @@ def get_parser_args():
     args = parser.parse_args()
     return args
 
+
 def load_data(filepath):
     file = open(filepath)
     text_str = file.read()
@@ -23,12 +24,14 @@ def remove_punctuation(text_str):
     clean_text_str = re.sub(r'[^\w]', ' ', text_str)
     return clean_text_str
 
+
 def tokenize(text_str):
     if text_str is not None:
         wordlist = text_str.lower().split()
         return wordlist
     else:
         return None
+
 
 def get_words_frequency_dict(wordlist):
     wordfreq = [wordlist.count(p) for p in wordlist]
@@ -40,7 +43,7 @@ def get_top_10_frequent_words(frequency_dict):
     top_10_list = sorted(
         frequency_dict.items(),
         key=lambda x: x[1],
-        reverse = True)[:10]
+        reverse=True)[:10]
     return top_10_list
 
 
