@@ -5,8 +5,11 @@ The script reads a text file, splits it by space and returns 10 most frequent wo
 
 ### Description
 * Works with any language that divides words with spacings (e.g. won't work with Chinese)
-* Will return an error if fails to read file
 * Uses only word characters for analysis
+* Will return an error if fails to read file
+* Will return an error if there are no words in file
+* If there are less then 10 different words in the text, will print and additional message stating the number of different words.
+
 
 ### How to launch
 
@@ -29,6 +32,7 @@ to: 47
 had: 40
 was: 39
 ```
+
 
 ### Project goals
 
