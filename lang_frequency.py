@@ -41,7 +41,7 @@ def remove_punctuation(text_str):
 
 def no_words_check(clean_text_str):
     no_spaces = clean_text_str.replace(" ", "")
-    if len(no_spaces) == 0:
+    if not len(no_spaces):
         return True
 
 
