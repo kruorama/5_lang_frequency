@@ -4,7 +4,7 @@ The script reads a text file, splits it by space and returns selected number of 
 
 
 ### Description
-* Accepts 2 arguments: path to text file and number of top frequent words to display
+* Accepts 2 arguments: path to text file and (optional, -c) number of top frequent words to display
 * Works with any language that divides words with spacings (e.g. won't work with Chinese)
 * Uses only word characters for analysis
 * Will return an error if fails to read file
@@ -19,7 +19,7 @@ Example of script launch on Linux, Python 3.5:
 ```
 bash
 
-$ python lang_frequency.py -f <filepath> -d 10
+$ python lang_frequency.py -f <filepath>
 # possibly requires call of python3 executive instead of just python
 Top 10 most frequent words in file:
 the: 192
