@@ -9,7 +9,7 @@ The script reads a text file, splits it by space and returns selected number of 
 * Uses only word characters for analysis
 * Will return an error if fails to read file
 * Will return an error if there are no words in file
-* If there are less then 10 different words in the text, will print and additional message stating the number of different words.
+* If there are less different words in the text then there are to display, will print and additional message stating the number of different words.
 
 
 ### How to launch
