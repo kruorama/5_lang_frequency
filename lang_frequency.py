@@ -60,12 +60,12 @@ def get_most_common_words_dict(wordlist, display_count):
     return top_words_counts_dict
 
 
-def pretty_print_words_list(top_N_frequent_words, display_count):
-    list_len = len(top_N_frequent_words)
+def pretty_print_words_list(top_n_frequent_words, display_count):
+    list_len = len(top_n_frequent_words)
     if list_len < display_count:
         print('There are only {} different words in text'.format(list_len))
     print('Top {} most frequent words in file:'.format(list_len))
-    for key, value in top_N_frequent_words.items():
+    for key, value in top_n_frequent_words.items():
         print('{}: {}'.format(key, value))
 
 
@@ -79,5 +79,5 @@ if __name__ == '__main__':
     if check_no_words(clean_text_str):
         exit('There are no words in the file')
     wordlist = split_text_str(clean_text_str)
-    top_N_frequent_words = get_most_common_words_dict(wordlist, display_count)
-    pretty_print_words_list(top_N_frequent_words, display_count)
+    top_n_frequent_words = get_most_common_words_dict(wordlist, display_count)
+    pretty_print_words_list(top_n_frequent_words, display_count)
