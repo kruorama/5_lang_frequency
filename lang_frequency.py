@@ -38,10 +38,9 @@ def remove_punctuation(text_str):
     return clean_text_str
 
 
-def check_no_words(clean_text_str):
-    no_spaces = clean_text_str.replace(' ', '')
-    if not len(no_spaces):
-        return True
+def check_empty_string(clean_text_str):
+    str_without_spaces = clean_text_str.replace(' ', '')
+    return not str_without_spaces
 
 
 def split_text_str(text_str):
@@ -52,21 +51,18 @@ def split_text_str(text_str):
         return wordlist
 
 
-def get_most_common_words_dict(wordlist, display_count):
-    top_words_counts_list = Counter(wordlist).most_common(display_count)
-    top_words_counts_dict = {}
-    for word in top_words_counts_list:
-        top_words_counts_dict[word[0]] = word[1]
-    return top_words_counts_dict
+def get_most_common_words(wordlist, display_count):
+    most_frequent_words = Counter(wordlist).most_common(display_count)
+    return most_frequent_words
 
 
-def pretty_print_words_list(top_n_frequent_words, display_count):
-    list_len = len(top_n_frequent_words)
+def pretty_print_words_list(most_frequent_words, display_count):
+    list_len = len(most_frequent_words)
     if list_len < display_count:
         print('There are only {} different words in text'.format(list_len))
     print('Top {} most frequent words in file:'.format(list_len))
-    for key, value in top_n_frequent_words.items():
-        print('{}: {}'.format(key, value))
+    for word, count in most_frequent_words:
+        print('{}: {}'.format(word, count))
 
 
 if __name__ == '__main__':
@@ -76,8 +72,8 @@ if __name__ == '__main__':
     if text_str is None:
         exit('File is not found')
     clean_text_str = remove_punctuation(text_str)
-    if check_no_words(clean_text_str):
+    if check_empty_string(clean_text_str):
         exit('There are no words in the file')
     wordlist = split_text_str(clean_text_str)
-    top_n_frequent_words = get_most_common_words_dict(wordlist, display_count)
-    pretty_print_words_list(top_n_frequent_words, display_count)
+    most_frequent_words = get_most_common_words(wordlist, display_count)
+    pretty_print_words_list(most_frequent_words, display_count)
